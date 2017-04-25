@@ -47,6 +47,8 @@ public class ActionDownload extends ActionSupport implements ServletRequestAware
             return;
         }
 
+//        private
+
 
         try {
             InputStream fis = new BufferedInputStream(new FileInputStream(imageFile));
