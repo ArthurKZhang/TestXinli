@@ -1,0 +1,29 @@
+CRegister {
+     String name;
+     String password;
+     String institution;
+     Date enrollmentDate;
+     String type            类型，学生还是老师
+
+}
+SRegister{
+     String result;
+     String _id;
+}
+
+==================================================
+
+CLogin {
+     String name;
+     String password;
+}
+SLogin {
+     String result;
+     String _id;
+     String institution;
+     Date enrollmentDate;
+     String type            类型，学生还是老师
+}
+
+=================================================
+
