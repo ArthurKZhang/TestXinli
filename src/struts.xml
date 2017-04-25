@@ -17,6 +17,13 @@
         <action name="login" class="com.arthur.actions.login.ActionLogin" method="login">
             <result type="json"></result>
         </action>
+        <action name="photo" class="com.arthur.actions.getphoto.PhotoAction" method="photo">
+            <result type="json"></result>
+        </action>
+        <action name="uploadphoto" class="com.arthur.actions.uploadphoto.ActionUploadPhoto" method="uploadPhoto">
+            <!--<param name="savePath">/image</param>-->
+            <result type="json"></result>
+        </action>
         <action name="uploadimg" class="ActionUploadImage" method="upload">
             <param name="savePath">/image</param>
             <result type="json"></result>

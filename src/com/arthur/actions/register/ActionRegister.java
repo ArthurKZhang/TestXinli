@@ -2,12 +2,9 @@ package com.arthur.actions.register;
 
 import com.arthur.actions.BaseAction;
 import com.arthur.actions.login.ActionLogin;
-import com.arthur.mongo.Manager;
+import com.arthur.mongo.MongoManager;
 import com.arthur.netutils.RpnTool;
 import com.arthur.netutils.RqsTool;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -17,12 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
-import java.util.Date;
 
 /**
  * Created by zhangyu on 18/04/2017.
@@ -46,9 +37,9 @@ public class ActionRegister extends BaseAction {
         String name = cRegister.getName();
 
         //判断名字，用户名不可重复
-        MongoClient mongoClient = Manager.getMongoClient();
-//                new MongoClient(Manager.HOST, Manager.PORT);
-        MongoDatabase db = mongoClient.getDatabase(Manager.DB_NAME1);
+        MongoClient mongoClient = MongoManager.getMongoClient();
+//                new MongoClient(MongoManager.HOST, MongoManager.PORT);
+        MongoDatabase db = mongoClient.getDatabase(MongoManager.DB_NAME1);
 
         MongoCollection collection = db.getCollection("user");
 

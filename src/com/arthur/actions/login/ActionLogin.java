@@ -1,12 +1,11 @@
 package com.arthur.actions.login;
 
 import com.arthur.actions.BaseAction;
-import com.arthur.mongo.Manager;
+import com.arthur.mongo.MongoManager;
 import com.arthur.netutils.RpnTool;
 import com.arthur.netutils.RqsTool;
 import com.google.gson.Gson;
 import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -14,11 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
-import java.util.Calendar;
 
 /**
  * Created by zhangyu on 15/02/2017.
@@ -35,8 +30,8 @@ public class ActionLogin extends BaseAction {
 
         SLogin sLogin = null;
         //检查用户名和密码
-        MongoClient mongoClient = Manager.getMongoClient();
-        MongoDatabase db = mongoClient.getDatabase(Manager.DB_NAME1);
+        MongoClient mongoClient = MongoManager.getMongoClient();
+        MongoDatabase db = mongoClient.getDatabase(MongoManager.DB_NAME1);
 
         MongoCollection collection = db.getCollection("user");
         String name = cLogin.getName();
@@ -53,15 +48,16 @@ public class ActionLogin extends BaseAction {
                         d.getObjectId("_id").toString(),
                         d.getString("institution"),
                         d.getDate("enrolDate"),
-                        d.getString("type"));
+                        d.getString("type"),
+                        d.getString("photoid"));
             } else {
                 //密码错误, "1"表示密码错误
-                sLogin = new SLogin("1", null, null, null, null);
+                sLogin = new SLogin("1", null, null, null, null,null);
             }
 
         } else {
             //用户名不存在 "-1" 表示用户名不存在
-            sLogin = new SLogin("-1", null, null, null, null);
+            sLogin = new SLogin("-1", null, null, null, null,null);
         }
 
         new RpnTool<SLogin>().send(response, sLogin);

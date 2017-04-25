@@ -39,6 +39,7 @@ public class RqsTool<T> {
                     InputStreamReader(request.getInputStream(), "UTF-8"));
         } catch (IOException e) {
             logger.error("request cannot getInputStream");
+            System.err.println("RqsTool->request cannot get InputStream");
             e.printStackTrace();
         }
         String line = null;
@@ -49,10 +50,11 @@ public class RqsTool<T> {
             }
         } catch (IOException e) {
             logger.error("readLine exception");
+            System.err.println("RqsTool->readLine exception");
             e.printStackTrace();
         }
         logger.info("receive: " + sb.toString());
-        System.out.println(sb.toString());
+        System.out.println("RqsTool->receive:" + sb.toString());
         String json = sb.toString();
 
         Object C = gson.fromJson(json, type);
