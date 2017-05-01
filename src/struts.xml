@@ -9,21 +9,45 @@
     <package name="testjson" extends="json-default">
 
         <action name="getjson" class="ActionCharCommuTest" method="json">
-            <result type="json"></result>
+            <result type="json"/>
         </action>
+
         <action name="register" class="com.arthur.actions.register.ActionRegister" method="register">
-            <result type="json"></result>
+            <result type="json"/>
         </action>
+
         <action name="login" class="com.arthur.actions.login.ActionLogin" method="login">
-            <result type="json"></result>
+            <result type="json"/>
         </action>
+
         <action name="photo" class="com.arthur.actions.getphoto.PhotoAction" method="photo">
-            <result type="json"></result>
+            <result type="json"/>
         </action>
+
         <action name="uploadphoto" class="com.arthur.actions.uploadphoto.ActionUploadPhoto" method="uploadPhoto">
             <!--<param name="savePath">/image</param>-->
-            <result type="json"></result>
+            <result type="json"/>
         </action>
+
+        <action name="downTeacherTestList" class="com.arthur.actions.tea_down_testlist.ActionDownTeacherTestList"
+                method="downTeacherTestList">
+            <result type="json"/>
+        </action>
+
+        <action name="publish" class="com.arthur.actions.tea_publish_test.ActionPublishtest" method="publish">
+            <result type="json"/>
+        </action>
+
+        <action name="uploadtest" class="com.arthur.actions.tea_posttest_simple.ActionTeaPostTestSimple"
+                method="uploadtest">
+            <result type="json"/>
+        </action>
+
+        <action name="downcache" class="com.arthur.actions.tea_down_cache.ActionTeaDownCache"
+                method="downcache">
+            <result type="json"/>
+        </action>
+        <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
         <action name="uploadimg" class="ActionUploadImage" method="upload">
             <param name="savePath">/image</param>
             <result type="json"></result>
@@ -31,9 +55,9 @@
         <action name="download" class="ActionDownload" method="download">
             <result type="json"></result>
         </action>
-        <action name="uploadtest" class="com.arthur.actions.teacher_post_test.ActionUploadTest" method="uploadtest">
-            <result type="json"></result>
-        </action>
+        <!--<action name="uploadtest" class="com.arthur.actions.notused_teacher_post_testost_test.ActionUploadTest" method="uploadtest">-->
+        <!--<result type="json"></result>-->
+        <!--</action>-->
     </package>
 
 </struts>
