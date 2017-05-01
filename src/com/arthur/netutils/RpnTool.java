@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.Calendar;
 
@@ -30,14 +31,24 @@ public class RpnTool<T> {
         Type stype = new com.google.gson.reflect.TypeToken<T>() {
         }.getType();
 
+        String result = gson.toJson(object, stype);
+
         //发送返回信息
         response.setCharacterEncoding("utf-8");
-        String result = gson.toJson(object, stype);
-        logger.info("send response: "+result);
+
+        try {
+            int length = result.getBytes("UTF-8").length;
+            System.out.println("send response, length:"+length);
+            response.setContentLength(length);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("send response: "+result);
         try {
             response.getWriter().write(result);
         } catch (IOException e) {
-            logger.error("cannot send back response");
+            System.err.println("cannot send back response");
             e.printStackTrace();
         }
     }

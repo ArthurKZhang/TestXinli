@@ -41,7 +41,7 @@ public class ActionRegister extends BaseAction {
 //                new MongoClient(MongoManager.HOST, MongoManager.PORT);
         MongoDatabase db = mongoClient.getDatabase(MongoManager.DB_NAME1);
 
-        MongoCollection collection = db.getCollection("user");
+        MongoCollection<Document> collection = db.getCollection(MongoManager.COLLECTION_USER);
 
         FindIterable<Document> findIterable = collection.find(new Document("name", name));
 
@@ -59,7 +59,7 @@ public class ActionRegister extends BaseAction {
                 .append("passwd", cRegister.getPassword())
                 .append("institution", cRegister.getInstitution())
                 .append("enrolDate", cRegister.getEnrollmentDate())
-                .append("type",cRegister.getType());
+                .append("type", cRegister.getType());
         collection.insertOne(newUser);
         ObjectId id = newUser.getObjectId("_id");
         System.out.println("-----id：" + id.toString());

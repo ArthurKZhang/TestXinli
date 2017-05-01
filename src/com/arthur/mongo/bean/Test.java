@@ -6,26 +6,41 @@ import java.util.List;
  * Created by zhangyu on 21/03/2017.
  */
 public class Test {
-    private List<Quz> test;
+    private String testName;
 
-    public Test(){}
-
-    public Test(List<Quz> test) {
-        this.test = test;
-    }
-
-    public List<Quz> getTest() {
-        return test;
-    }
-
-    public void setTest(List<Quz> test) {
-        this.test = test;
-    }
+    private List<Quz> quzs;
 
     @Override
     public String toString() {
-        return "com.arthur.mongo.bean.Test{" +
-                "test=" + test +
+        return "Test{" +
+                "testName='" + testName + '\'' +
+                ", quzs=" + quzs +
                 '}';
+    }
+
+    public String getTestName() {
+        return testName;
+    }
+
+    public void setTestName(String testName) {
+        this.testName = testName;
+    }
+
+    public List<Quz> getQuzs() {
+        return quzs;
+    }
+
+    public void setQuzs(List<Quz> quzs) {
+        this.quzs = quzs;
+    }
+
+    public Test(String testName, List<Quz> quzs) {
+
+        this.testName = testName;
+        this.quzs = quzs;
+    }
+
+    public Test() {
+
     }
 }

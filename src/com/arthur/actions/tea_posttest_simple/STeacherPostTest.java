@@ -1,4 +1,4 @@
-package com.arthur.actions.teacher_post_test;
+package com.arthur.actions.tea_posttest_simple;
 
 /**
  * Created by zhangyu on 26/03/2017.

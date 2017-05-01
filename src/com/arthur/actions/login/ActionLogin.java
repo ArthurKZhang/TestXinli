@@ -33,7 +33,7 @@ public class ActionLogin extends BaseAction {
         MongoClient mongoClient = MongoManager.getMongoClient();
         MongoDatabase db = mongoClient.getDatabase(MongoManager.DB_NAME1);
 
-        MongoCollection collection = db.getCollection("user");
+        MongoCollection collection = db.getCollection(MongoManager.COLLECTION_USER);
         String name = cLogin.getName();
         String passwd = cLogin.getPassword();
 

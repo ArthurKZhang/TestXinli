@@ -66,7 +66,7 @@ public class ActionUploadImage extends ActionSupport implements ServletRequestAw
              */
             response.setCharacterEncoding("utf-8");
             result = gson.toJson("||"+filePath+"||",type);
-            System.out.println(result);
+            System.out.println("result:"+result);
             response.getWriter().write(result);
 
         } catch (Exception e) {

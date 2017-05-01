@@ -1,5 +1,7 @@
-package com.arthur.actions.teacher_post_test;
+package com.arthur.actions.notused_teacher_post_test;
 
+import com.arthur.actions.tea_posttest_simple.CTeacherPostTest;
+import com.arthur.actions.tea_posttest_simple.STeacherPostTest;
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.ServletRequestAware;
