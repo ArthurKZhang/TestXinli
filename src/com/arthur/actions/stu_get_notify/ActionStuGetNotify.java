@@ -42,8 +42,6 @@ public class ActionStuGetNotify extends BaseAction {
         MongoCollection<Document> userCol = db.getCollection(MongoManager.COLLECTION_USER);
         MongoCollection<Document> historyCol = db.getCollection(MongoManager.COLLECTION_HISTORY);
 
-        BasicDBObject query = new BasicDBObject();
-//        query.put("_id", ;
         MongoCursor<Document> userCurser = userCol.find(new Document("_id",new ObjectId(stuId))).iterator();
         Document user = null;
         if (userCurser.hasNext()) {
