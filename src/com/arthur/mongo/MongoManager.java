@@ -18,11 +18,12 @@ public class MongoManager {
 
     public static final String COLLECTION_USER = "user";
     public static final String COLLECTION_PUBLISH = "publish";
-    public static final String COLLECTION_DIDTEST = "testresult";//记录一套题的所有用户的做题结果
+    public static final String COLLECTION_TESTRESULT = "testresult";//记录一套题的所有用户的做题结果
     public static final String COLLECTION_HISTORY = "history";//记录学生的做题历史，里面有testId和userId
 
     public static final String GRIDFS_USER_PHOTO = "user_photo";
     public static final String GRIDFS_TEACHER_TEST = "teacher_test";
+    public static final String GRIDFS_EXCEL_RESULT = "excel_result";
 
 
     private static MongoClient mongoClient = null;

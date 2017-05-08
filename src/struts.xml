@@ -20,7 +20,7 @@
             <result type="json"/>
         </action>
 
-        <action name="photo" class="com.arthur.actions.getphoto.PhotoAction" method="photo">
+        <action name="photo" class="com.arthur.actions.getphoto.ActionGetPhoto" method="photo">
             <result type="json"/>
         </action>
 
@@ -59,6 +59,10 @@
         </action>
         <action name="stuhandresult" class="com.arthur.actions.stu_hand_result.ActionStuHandResult"
                 method="stuHandResult">
+            <result type="json"/>
+        </action>
+        <action name="teatestresultitem" class="com.arthur.actions.tea_test_result_item.ActionTeaTestResultItem"
+                method="getResultItem">
             <result type="json"/>
         </action>
 

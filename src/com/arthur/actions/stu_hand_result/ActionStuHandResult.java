@@ -54,7 +54,7 @@ public class ActionStuHandResult extends BaseAction {
         ObjectId hisId = doc.getObjectId("_id");
 
         //一套题的所有用户答题结果需要记录下来
-        MongoCollection<Document> didTestCol = db.getCollection(MongoManager.COLLECTION_DIDTEST);
+        MongoCollection<Document> didTestCol = db.getCollection(MongoManager.COLLECTION_TESTRESULT);
         MongoCursor<Document> cursor = didTestCol.find(new Document("tesId",testId)).iterator();
         if (cursor.hasNext()){
             Document doc1 = cursor.next();
@@ -67,7 +67,8 @@ public class ActionStuHandResult extends BaseAction {
             List<String> newll = new ArrayList<>();
             newll.add(hisId.toHexString());
             Document newDoc = new Document("tesId",testId)
-                    .append("historyIds",newll);
+                    .append("historyIds",newll)
+                    .append("fileId","");
             didTestCol.insertOne(newDoc);
         }
 

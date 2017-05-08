@@ -14,24 +14,24 @@ import org.bson.types.ObjectId;
 /**
  * Created by zhangyu on 25/04/2017.
  */
-public class PhotoAction extends BaseAction{
+public class ActionGetPhoto extends BaseAction{
     public void photo() {
         CDownloadPhoto cDownloadPhoto = new RqsTool<CDownloadPhoto>() {
         }.rqsTool(request);
 
         String photoid = cDownloadPhoto.getPhotoID();
         if (photoid==null){
-            System.err.println("PhotoAction-> photoid is null");
+            System.err.println("ActionGetPhoto-> photoid is null");
             return;
         }
         ObjectId fileId = new ObjectId(photoid);
 
         MongoClient mongoClient = MongoManager.getMongoClient();
         MongoDatabase database = mongoClient.getDatabase(MongoManager.DB_NAME1);
-        GridFSBucket gridFSBucket = GridFSBuckets.create(database,"user_photo");
+        GridFSBucket gridFSBucket = GridFSBuckets.create(database,MongoManager.GRIDFS_USER_PHOTO);
         GridFSDownloadStream downloadStream = gridFSBucket.openDownloadStream(fileId);
         int fileLength = (int) downloadStream.getGridFSFile().getLength();
-        System.out.println("PhotoAction->"+photoid+"->file length:"+fileLength);
+        System.out.println("ActionGetPhoto->"+photoid+"->file length:"+fileLength);
 
         byte[] bytesToWriteTo = new byte[fileLength];
         downloadStream.read(bytesToWriteTo);

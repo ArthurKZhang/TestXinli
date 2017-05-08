@@ -37,6 +37,7 @@
           <element id="library" level="project" name="j2ee6" />
           <element id="library" level="project" name="gson-2.8.0" />
           <element id="library" level="project" name="mongo-java-driver-3.4.1" />
+          <element id="library" level="project" name="jxl" />
         </element>
       </element>
     </root>
